@@ -1,0 +1,34 @@
+paths:
+  /photo:
+    post:
+      summary: Test photo
+      tags:
+        - Photo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                filename:
+                  type: string
+                views:
+                  type: number
+                isPublished:
+                  type: boolean
+      responses:
+        "200": # status code
+          description: Json format of srt file
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  result:
+                    type: object

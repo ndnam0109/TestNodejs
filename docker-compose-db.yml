@@ -1,0 +1,27 @@
+version: "3"
+
+networks:
+  backend:
+    external:
+      name: backend
+
+services:
+  mysql:
+    image: mysql:latest
+    # restart: always
+    volumes:
+      - backend-mysql:/var/lib/mysql
+
+    networks:
+      - backend
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+      - MYSQL_ROOT_PASSWORD=123qwe
+      - MYSQl_TCP_PORT=33030
+      - MYSQL_UNIX_PORT=33020
+    ports:
+      - "3307:3306"
+
+volumes:
+  backend-mysql:
+  notused:
